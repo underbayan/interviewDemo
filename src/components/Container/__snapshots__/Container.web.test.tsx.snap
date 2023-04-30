@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Container renders correctly 1`] = `
+<div>
+  <main
+    class="undefined p-t-sm-1 p-t-md-2"
+  >
+    Click me
+  </main>
+</div>
+`;

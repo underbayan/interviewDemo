@@ -1,0 +1,23 @@
+@import "@demo/designSystem";
+
+.buttonStyle {
+  border: 1px solid var(--grays-5-color);
+  color: var(--grays-3-color);
+  box-sizing: content-box;
+
+  &:disabled {
+    color: var(--grays-5-color);
+    background-color: none;
+  }
+
+  &:hover:disabled {
+    cursor: not-allowed;
+  }
+
+  &:hover {
+    color: var(--grays-5-color);
+    border: 1px solid var(--grays-4-color);
+    background-color: var(--grays-2-color);
+    cursor: pointer;
+  }
+}

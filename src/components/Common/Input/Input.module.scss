@@ -1,0 +1,28 @@
+@import "@demo/designSystem";
+
+.containerStyle {
+  display: flex;
+  align-items: baseline;
+
+  .inputStyle {
+    padding: 4px 8px;
+    outline: none;
+    border: none;
+    border-bottom: var(--grays-5-color) 1px solid;
+    color: var(--grays-3-color);
+
+    &::placeholder {
+      color: nth($grays, 4);
+    }
+
+    &:focus {
+      border-bottom: 1px solid var(--grays-3-color);
+    }
+  }
+
+  .spanStyle {
+    align-self: flex-end;
+    margin-inline-start: 12px;
+    font-size: 0.8em;
+  }
+}

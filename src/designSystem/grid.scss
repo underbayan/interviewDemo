@@ -1,0 +1,35 @@
+@use "sass:math";
+@import "./variables.scss";
+
+@mixin generate-grid($columns: 16, $gap: 1rem) {
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+
+  @for $i from 1 through $columns {
+    .col-#{$i} {
+      flex: 0 0 #{math.percentage(math.div(1, $columns) * $i)};
+      max-width: #{math.percentage(math.div(1, $columns) * $i)};
+      margin: math.div($gap, 2);
+    }
+  }
+
+  @each $breakpoint,
+  $width in $breakpoints {
+    $media-query: "(min-width: #{$width})";
+
+    @media #{$media-query} {
+      @for $i from 1 through $columns {
+        .col-#{$breakpoint}-#{$i} {
+          flex: 0 0 #{math.percentage(math.div(1, $columns) * $i)};
+          max-width: #{math.percentage(math.div(1, $columns) * $i)};
+          margin: math.div($gap, 2);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.sloganStyle {
+  text-transform: uppercase;
+  color: #888;
+  display: flex;
+  flex-direction: column;
+
+  .titleStyle {
+    font-size: 3rem;
+    margin: 0;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  .descriptionStyle {
+    margin: 20px 0 0 0;
+    font-size: 1rem;
+    align-self: flex-end;
+  }
+}

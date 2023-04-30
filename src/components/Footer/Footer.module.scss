@@ -1,0 +1,19 @@
+@import "@demo/designSystem";
+
+.footerStyle {
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  font-size: 11px;
+  row-gap: 2px;
+  flex-direction: column;
+  border-top: 1px solid var(--grays-5-color);
+  background-color: var(--grays-7-color);
+
+  .infoStyle {
+    flex: 1;
+  }
+}

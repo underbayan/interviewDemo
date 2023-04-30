@@ -1,0 +1,26 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Header renders correctly 1`] = `
+<div>
+  <header>
+    <div
+      class="row undefined"
+    >
+      <div
+        class="p-xs-1 p-sm-2 undefined"
+      >
+         
+        Broccoli & co.
+         
+      </div>
+      <div>
+         
+        zh
+      </div>
+      <div>
+         🌓 
+      </div>
+    </div>
+  </header>
+</div>
+`;

@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Header renders correctly 1`] = `
+<div>
+  <section>
+    <pre>
+      A better way 
+To enjoy every day.
+    </pre>
+    <p>
+      Be the first to know  when we launch
+    </p>
+  </section>
+</div>
+`;

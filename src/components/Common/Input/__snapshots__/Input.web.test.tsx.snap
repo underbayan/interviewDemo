@@ -1,0 +1,16 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Input renders correctly 1`] = `
+<div>
+  <div
+    class="undefined p-t-xs-1"
+  >
+    <input
+      autocomplete="on"
+      class="undefined "
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;

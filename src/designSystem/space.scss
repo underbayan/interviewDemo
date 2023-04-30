@@ -1,0 +1,34 @@
+@import "./variables.scss";
+
+/** 
+*/
+@mixin generate-spacers($base, $multiplier, $prefix: '') {
+  $directions: (t:'top', l:'left', r:'right', b:'bottom');
+  $scopes : (p:"padding", m:"margin");
+
+  @each $size,
+  $width in $breakpoints {
+    @media (min-width: $width) {
+
+      @each $scopeAttr,
+      $scope in $scopes {
+
+        @each $directionAttr,
+        $direction in $directions {
+          @for $i from 1 through $multiplier {
+            .#{$prefix}#{$scopeAttr}-#{$size}-#{$i} {
+              #{$scope}: $i * $base;
+            }
+          }
+
+          @for $i from 1 through $multiplier {
+            .#{$prefix}#{$scopeAttr}-#{$directionAttr}-#{$size}-#{$i} {
+              #{$scope}-#{$direction}: $i * $base;
+            }
+
+          }
+        }
+      }
+    }
+  }
+}

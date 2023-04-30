@@ -1,0 +1,42 @@
+@import "@demo/designSystem";
+
+.modalStyle {
+  position: fixed;
+  z-index: 9999; // TODO: value should set by design system
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: auto;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: transparentize(nth($grays, 3), 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .contentStyle {
+    position: relative;
+    padding: 42px 24px 24px 24px;
+    border: 1px solid var(--grays-5-color);
+    background-color: var(--grays-7-color);
+    max-width: 95%;
+    box-sizing: border-box;
+  }
+
+  .closeStyle {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    cursor: pointer;
+    font-size: 30px;
+    line-height: 32px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px dashed var(--grays-5-color);
+  }
+}

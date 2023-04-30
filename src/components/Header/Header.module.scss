@@ -1,0 +1,45 @@
+@import "@demo/designSystem";
+
+.navStyle {
+  width: 100vw;
+  border-bottom: 1px solid var(--grays-5-color);
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--grays-7-color);
+
+  .langStyle {
+    align-self: center;
+    cursor: pointer;
+    margin-right: 10px;
+    text-transform: uppercase;
+    padding: 6px 8px;
+    border: 1px solid var(--grays-6-color);
+    font-size: 0.75rem;
+    height: 26px;
+    box-sizing: border-box;
+
+    &:hover {
+      background-color: var(--grays-1-color);
+      border-color: var(--grays-1-color);
+    }
+  }
+
+  .actionBarStyle {
+    justify-content: end
+  }
+
+  .themeStyle {
+    @extend .langStyle;
+    background-color: var(--grays-7-color);
+
+  }
+
+  .brandStyle {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+}

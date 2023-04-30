@@ -1,0 +1,33 @@
+@import "@demo/designSystem";
+
+.perBock {
+  min-width: 6px;
+  min-height: 6px;
+  border: 1px solid nth($grays, 3);
+}
+
+.resCol {
+  margin-top: 150px;
+}
+
+.resCol3 {
+  padding-bottom: 120px;
+}
+
+@for $i from 1 through $colorNums {
+
+  .resCol>div:nth-child(#{$i}) {
+    @extend .perBock;
+    background-color: nth($primary-gradient, $i);
+  }
+
+  .resCol2>div:nth-child(#{$i}) {
+    @extend .perBock;
+    background-color: nth($secondary-gradient, $i);
+  }
+
+  .resCol3>div:nth-child(#{$i}) {
+    @extend .perBock;
+    background-color: nth($grays, $i);
+  }
+}

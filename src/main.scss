@@ -1,0 +1,30 @@
+@import "normalize.css/normalize";
+@import "@demo/designSystem";
+@include generate-grid(16, 0.5rem);
+@include generate-spacers(1rem, 2);
+
+// TODO support dynamic px
+// @function vw($px) {
+//   @return ($px / 750) * 100vw;
+// }
+
+
+:root,
+body {
+  text-size-adjust: 100%;
+  font-family: 'Times New Roman', Times, serif;
+  @include genColorScheme(false);
+  background-color: var(--grays-7-color);
+  color: var(--grays-3-color);
+}
+
+#root {
+  font-size: 12px;
+}
+
+// @media (prefers-color-scheme: dark) {}
+
+:root,
+body.dark {
+  @include genColorScheme(true);
+}

@@ -1,0 +1,18 @@
+{
+  "brand": "你好, js",
+  "confirmEmail": "确认邮件",
+  "email": "邮件",
+  "footerAuthor": "来自 ❤️ in Melbourne.",
+  "footerCopyright": "@ {date} Broccoli & Co. 版权所有.",
+  "fullName": "全名",
+  "invite": "获取邀请资格",
+  "loading": "加载中",
+  "send": "发送",
+  "slogan": "此处有留白。。。",
+  "sloganDetail": "无法告知关于Z的一切",
+  "textOfInviteButton": "获取邀请资格",
+  "unknownError": "未知错误",
+  "welcomeTitle":"谢谢",
+  "welcomeSlogan":"具体的原因我们还是用留白阐释",
+  "ok":"好的"
+}

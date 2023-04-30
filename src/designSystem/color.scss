@@ -1,0 +1,80 @@
+@use "sass:math";
+@use "sass:color";
+
+@function generate-gray-colors($num-grays) {
+  $grays: ();
+
+  @for $i from 1 through $num-grays {
+    // @debug math.percentage((math.div(1, $num-grays+1)) * $i);
+    $grays: append($grays, lighten(black, math.percentage((math.div(1, $num-grays)) * $i)));
+  }
+
+  @return $grays;
+}
+
+@function generate-color-system($primary-color, $secondary-color, $num-grays) {
+  // Calculate HSL values for primary and secondary colors
+  $primary-h: hue($primary-color);
+  $primary-s: saturation($primary-color);
+  $primary-l: lightness($primary-color);
+
+  $secondary-h: hue($secondary-color);
+  $secondary-s: saturation($secondary-color);
+  $secondary-l: lightness($secondary-color);
+
+  // Generate primary and secondary color gradients
+  $primary-gradient: ();
+  $secondary-gradient: ();
+
+  @for $i from 1 through $num-grays {
+    $p: mix($primary-color, white, math.percentage(math.div($i, $num-grays)));
+    $s: mix($secondary-color, white, math.percentage(math.div($i, $num-grays)));
+    $primary-gradient: append($primary-gradient, $p);
+    $secondary-gradient: append($secondary-gradient, $s);
+  }
+
+
+
+  @return ("primary-color": $primary-color,
+    "secondary-color": $secondary-color,
+    "primary-gradient": $primary-gradient,
+    "secondary-gradient": $secondary-gradient,
+    "white-color": white,
+    "black-color": black,
+    "grays": generate-gray-colors($num-grays),
+  );
+}
+
+
+
+// 调用 generate-color-system 函数生成颜色系统
+$colorNums: 7;
+$colors: generate-color-system(#002FA7, #fe5000, $colorNums);
+$primary-color: map-get($colors, "primary-color");
+$secondary-color: map-get($colors, "secondary-color");
+$primary-gradient: map-get($colors, "primary-gradient"); // $primary-gradient-1: nth($primary-gradient, 1);
+$secondary-gradient: map-get($colors, "secondary-gradient");
+$white-color: map-get($colors, "white-color");
+$black-color: map-get($colors, "black-color");
+$grays: map-get($colors, "grays");
+
+@mixin genColorScheme($dark) {
+
+  @each $name,
+  $list in $colors {
+    @if type-of($list)==list {
+      @if $dark {
+        @for $i from 1 through $colorNums {
+          --#{$name}-#{$i}-color: #{nth($list, $colorNums+1-$i)};
+        }
+      }
+
+      @else {
+        @for $i from 1 through $colorNums {
+          --#{$name}-#{$i}-color: #{nth($list, $i)};
+        }
+      }
+
+    }
+  }
+}

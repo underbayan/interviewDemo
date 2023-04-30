@@ -1,0 +1,16 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Footer renders correctly 1`] = `
+<div>
+  <footer
+    class="p-xs-1 p-sm-2 undefined"
+  >
+    <div>
+      Made with ❤️ in Melbourne.
+    </div>
+    <div>
+      @ 2023 Broccoli & Co. All rights reserved.
+    </div>
+  </footer>
+</div>
+`;

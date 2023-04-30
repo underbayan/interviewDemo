@@ -1,0 +1,32 @@
+@import "@demo/designSystem";
+
+.inviteButtonStyle {
+  background-color: transparent;
+  margin-top: 60px;
+  padding: 12px 36px;
+}
+
+.contentStyle {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 400px;
+  margin-top: -30px;
+
+  .inputStyle {
+    margin-top: 12px;
+    width: 100%;
+    background-color: transparent;
+  }
+
+  .successStyle {
+    margin-top: 12px;
+    color: var(--grays-5-color);
+  }
+
+  .errorStyle {
+    margin-top: 12px;
+    color: red;
+  }
+}
