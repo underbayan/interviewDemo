@@ -10,7 +10,7 @@ import {
   useCallback,
 } from 'react';
 import { inputStyle, spanStyle, containerStyle } from './Input.module.scss';
-import { omit } from 'lodash';
+import { omit } from 'lodash-es';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
@@ -32,7 +32,6 @@ const Input = memo(
     const [flag, setFlag] = useState<string>('');
     const [ok, setOk] = useState<boolean>(false);
     const { className, onChange, message, validate, ...rest } = props;
-    console.log(121212)
     useImperativeHandle<InputRef, InputRef>(
       ref as RefObject<InputRef>,
       () => ({ ok, value, setOk, setValue }),
