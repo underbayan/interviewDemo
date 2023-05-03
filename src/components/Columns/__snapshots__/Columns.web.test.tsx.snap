@@ -35,11 +35,6 @@ exports[`ColumnsTest renders correctly 1`] = `
     >
        
     </div>
-    <div
-      class="col-6 col-lg-2 col-sm-4"
-    >
-       
-    </div>
   </main>
   <main
     class="row undefined"
@@ -74,20 +69,10 @@ exports[`ColumnsTest renders correctly 1`] = `
     >
        
     </div>
-    <div
-      class="col-6 col-lg-2 col-sm-4"
-    >
-       
-    </div>
   </main>
   <main
     class="row undefined"
   >
-    <div
-      class="col-6 col-lg-2 col-sm-4"
-    >
-       
-    </div>
     <div
       class="col-6 col-lg-2 col-sm-4"
     >

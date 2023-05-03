@@ -17,7 +17,7 @@ const APP = () => {
       <Slogan />
       <InviteButton />
     </Container>
-    <ColumnsTest />
+    <ColumnsTest />  {/* ColumnsTest: Easter egg */}
     <Footer />
   </Provider>
 }
