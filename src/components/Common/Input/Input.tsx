@@ -24,6 +24,7 @@ export interface InputRef {
   value: string;
   setOk: (ok: boolean) => void;
   setValue: (value: string) => void;
+  handleChange: ChangeEventHandler<HTMLInputElement>;
 }
 
 const Input = memo(
@@ -32,11 +33,6 @@ const Input = memo(
     const [flag, setFlag] = useState<string>('');
     const [ok, setOk] = useState<boolean>(false);
     const { className, onChange, message, validate, ...rest } = props;
-    useImperativeHandle<InputRef, InputRef>(
-      ref as RefObject<InputRef>,
-      () => ({ ok, value, setOk, setValue }),
-      [ok, value, setOk, setValue],
-    );
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = useCallback(e => {
       setValue(e.target.value);
@@ -46,6 +42,12 @@ const Input = memo(
       if (newFlag !== flag) setFlag(newFlag);
       onChange && onChange(e.target.value as unknown as ChangeEvent<HTMLInputElement>);
     }, [onChange, setFlag, flag, validate, setValue]);
+
+    useImperativeHandle<InputRef, InputRef>(
+      ref as RefObject<InputRef>,
+      () => ({ ok, value, setOk, setValue, handleChange }),
+      [ok, value, setOk, setValue, handleChange],
+    );
 
     return (
       <div className={`${containerStyle} p-t-xs-1`}>

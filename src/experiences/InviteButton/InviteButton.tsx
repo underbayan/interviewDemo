@@ -1,11 +1,11 @@
 
-import { useState, useRef, useCallback, RefObject, Ref } from "react";
+import { useState, useRef, useCallback, RefObject, Ref, ChangeEvent } from "react";
 
 import { inviteButtonStyle, contentStyle, inputStyle, errorStyle, successStyle } from './InviteButton.module.scss'
 import { Button, Modal, Input, InputRef, ModalRef } from "../../components"
 import { useI18n } from "../../libs/store"
 import { sendEmail } from "../../services"
-export const checkFullNameRegExp = (v: string) => /^[\w|\s]{1,12}$/.test(v)
+export const checkFullNameRegExp = (v: string) => /^[\w|\s]{3,12}$/.test(v)
 export const checkEmailRegExp = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
 const initStatus = { error: false, message: '', loading: false }
 export const InviteButton = () => {
@@ -15,11 +15,16 @@ export const InviteButton = () => {
     inputRef1 = useRef<InputRef>(null),
     inputRef2 = useRef<InputRef>(null),
     inputRef3 = useRef<InputRef>(null)
-  const isOk = useCallback(() => setTimeout(() => {
-    setOk(!!(inputRef1.current?.ok && inputRef2.current?.ok && inputRef3?.current?.ok && inputRef2.current?.value == inputRef3.current?.value))
-  }), [inputRef2, inputRef3, inputRef1, setOk])
+  const isOk = useCallback(async (v: ChangeEvent<HTMLInputElement>) => {
+    const value = v as unknown as string
+    await Promise.resolve(null)
+    if (!inputRef1.current || !inputRef2.current || !inputRef3.current) return
+    setOk(!!(inputRef1.current.ok && inputRef2.current.ok && inputRef3.current.ok && inputRef2.current.value == inputRef3.current.value))
+    if (inputRef2.current.ok && value === inputRef2.current.value && ((value !== inputRef3.current.value && inputRef3.current.ok) || !inputRef3.current.ok))
+      inputRef3.current.handleChange({ target: { value: inputRef3.current.value } } as unknown as ChangeEvent<HTMLInputElement>)
+  }, [inputRef2, inputRef3, inputRef1, setOk])
   const setModal = useCallback((modalRef: RefObject<ModalRef>, open: boolean) => { modalRef.current?.setOpen(open) }, [])
-  const checkConfrim = useCallback((v: string) => checkEmailRegExp(v) && inputRef2.current?.value == v, [inputRef2])
+  const checkConfrim = useCallback((v: string) => checkEmailRegExp(v) && inputRef2.current?.value == v, [inputRef2, ok])
   return (
     <>
       <Button text={str.invite} onClick={setModal.bind(null, modalRef, true)} className={inviteButtonStyle} />
