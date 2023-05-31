@@ -39,5 +39,6 @@
     "updateSnapshot": "vitest -u"
   },
   "type": "module",
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "packageManager": "yarn@3.5.1"
 }
